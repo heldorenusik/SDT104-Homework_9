@@ -9,6 +9,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FAQ — MindFlow AI</title>
+    <meta
+      name="description"
+      content="Frequently asked questions about MindFlow AI: AI study assistant for students, learning with flashcards and quizzes, schedule and safety, plans and pricing."
+    />
+    <meta
+      name="keywords"
+      content="AI, studying, learning, student, assistant, schedule, quizzes, flashcards, personalised approach, academic performance, university, school, time management, teacher, MindFlow AI, FAQ"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -29,7 +37,7 @@
             <img
               class="logo-img"
               src="resources/logo.svg"
-              alt=""
+              alt="MindFlow AI logo"
               width="44"
               height="36"
               decoding="async"
@@ -53,9 +61,9 @@
       <div class="faq-shell container">
         <!-- one big white card; CSS grid splits intro vs accordion from 900px up -->
         <div class="faq-card">
-          <div class="faq-intro">
+          <section class="faq-intro" aria-labelledby="faq-page-title">
             <!-- two spans = two lines + different colors (serif from --font-serif in :root) -->
-            <h1 class="faq-page-title">
+            <h1 id="faq-page-title" class="faq-page-title">
               <span class="faq-title-line1">Frequently Asked</span>
               <span class="faq-title-line2">Questions</span>
             </h1>
@@ -65,10 +73,10 @@
             </p>
             <!-- sends people to the signup strip on the home page -->
             <a href="index.html#cta" class="btn btn--primary">Get A Free Plan</a>
-          </div>
+          </section>
 
           <!-- region label helps screen readers jump to the Q&A block -->
-          <div class="faq-list" role="region" aria-label="Frequently asked questions">
+          <section class="faq-list" role="region" aria-label="Frequently asked questions">
             <!-- [open] on <details> is what drives the round → rounded rectangle + rotated chevron -->
             <details class="faq-item">
               <summary class="faq-summary">
@@ -151,7 +159,7 @@
                 </p>
               </div>
             </details>
-          </div>
+          </section>
         </div>
       </div>
     </main>

@@ -6,6 +6,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MindFlow AI — AI-Powered Study Assistant</title>
+    <meta
+      name="description"
+      content="MindFlow AI is an AI study assistant for students at school and university: learning, schedule and time management, flashcards, quizzes, and a personalised approach to academic performance."
+    />
+    <meta
+      name="keywords"
+      content="AI, studying, learning, student, assistant, schedule, quizzes, flashcards, personalised approach, academic performance, university, school, time management, teacher, MindFlow AI"
+    />
     <!-- Fonts: preconnect tells the browser to connect early so text doesn’t sit invisible -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,7 +32,7 @@
             <img
               class="logo-img"
               src="resources/logo.svg"
-              alt=""
+              alt="MindFlow AI logo"
               width="44"
               height="36"
               decoding="async"
@@ -75,21 +83,36 @@
           <div class="about-grid" data-reveal-stagger>
             <article class="about-card">
               <div class="about-avatar">
-                <img src="resources/student_life_deadlines.png" alt="" width="200" height="200" />
+                <img
+                  src="resources/student_life_deadlines.png"
+                  alt="Illustration for too many deadlines: student juggling tasks and due dates"
+                  width="200"
+                  height="200"
+                />
               </div>
               <h3 class="about-card-title">Too many deadlines</h3>
               <p class="about-card-text">Assignments pile up faster than you can plan for them.</p>
             </article>
             <article class="about-card">
               <div class="about-avatar">
-                <img src="resources/student_life_much_info.png" alt="" width="200" height="200" />
+                <img
+                  src="resources/student_life_much_info.png"
+                  alt="Illustration for too much information: student surrounded by notes and lecture materials"
+                  width="200"
+                  height="200"
+                />
               </div>
               <h3 class="about-card-title">Too much information</h3>
               <p class="about-card-text">Lectures, slides, and readings never fit in one notebook.</p>
             </article>
             <article class="about-card">
               <div class="about-avatar">
-                <img src="resources/student_life_no_time.png" alt="" width="200" height="200" />
+                <img
+                  src="resources/student_life_no_time.png"
+                  alt="Illustration for not enough time: student managing a busy schedule"
+                  width="200"
+                  height="200"
+                />
               </div>
               <h3 class="about-card-title">Not enough time</h3>
               <p class="about-card-text">You need structure without spending hours organizing.</p>
@@ -112,28 +135,48 @@
           <div class="features-grid" data-reveal-stagger>
             <article class="feature-card">
               <div class="feature-visual">
-                <img src="resources/feature_questions.png" alt="" width="200" height="200" />
+                <img
+                  src="resources/feature_questions.png"
+                  alt="Feature illustration: ask course-based questions to the AI assistant"
+                  width="200"
+                  height="200"
+                />
               </div>
               <h3 class="feature-title">Ask Questions</h3>
               <p class="feature-text">Get clear answers grounded in your course materials.</p>
             </article>
             <article class="feature-card">
               <div class="feature-visual">
-                <img src="resources/feature_flashcards.png" alt="" width="200" height="200" />
+                <img
+                  src="resources/feature_flashcards.png"
+                  alt="Feature illustration: AI-generated flashcards for studying and review"
+                  width="200"
+                  height="200"
+                />
               </div>
               <h3 class="feature-title">Generate Flashcards</h3>
               <p class="feature-text">Turn any topic into review-ready cards automatically.</p>
             </article>
             <article class="feature-card">
               <div class="feature-visual">
-                <img src="resources/feature_quiz.png" alt="" width="200" height="200" />
+                <img
+                  src="resources/feature_quiz.png"
+                  alt="Feature illustration: adaptive quiz mode for checking understanding"
+                  width="200"
+                  height="200"
+                />
               </div>
               <h3 class="feature-title">Take a Quiz</h3>
               <p class="feature-text">Check understanding with adaptive practice questions.</p>
             </article>
             <article class="feature-card">
               <div class="feature-visual">
-                <img src="resources/feature_lessons.png" alt="" width="200" height="200" />
+                <img
+                  src="resources/feature_lessons.png"
+                  alt="Feature illustration: interactive AI lessons for step-by-step learning"
+                  width="200"
+                  height="200"
+                />
               </div>
               <h3 class="feature-title">Interactive AI Lessons</h3>
               <p class="feature-text">Walk through concepts step by step at your pace.</p>
@@ -141,8 +184,8 @@
           </div>
 
           <!-- Product demo: embedded video; #demo is where “Watch Demo” in the hero scrolls to -->
-          <div class="demo-block" id="demo" data-reveal>
-            <h2 class="demo-title">See how AI builds your week in 10 seconds.</h2>
+          <section class="demo-block" id="demo" data-reveal aria-labelledby="demo-video-heading">
+            <h2 id="demo-video-heading" class="demo-title">See how AI builds your week in 10 seconds.</h2>
             <div class="demo-video-wrap">
               <video
                 class="demo-video"
@@ -150,15 +193,16 @@
                 playsinline
                 preload="metadata"
                 poster="resources/hero_study_assistant.png"
+                aria-label="Product demo video: how MindFlow AI builds your study week from your materials"
               >
                 <source src="resources/video_guide.mp4" type="video/mp4" />
               </video>
             </div>
-          </div>
+          </section>
         </div>
 
         <!-- Testimonials: full-bleed background, three student photos + quotes in a row -->
-        <div class="testimonials-block" aria-labelledby="testimonials-heading">
+        <section class="testimonials-block" aria-labelledby="testimonials-heading">
           <div class="container">
             <h2 id="testimonials-heading" class="section-title section-title--on-tint">
               Students Who Study Smarter
@@ -168,7 +212,7 @@
                 <img
                   class="testimonial-photo"
                   src="resources/student_1.png"
-                  alt="Jane Smith"
+                  alt="Jane Smith — student testimonial portrait"
                   width="400"
                   height="500"
                 />
@@ -181,7 +225,7 @@
                 <img
                   class="testimonial-photo"
                   src="resources/student_2.png"
-                  alt="Camila Laine"
+                  alt="Camila Laine — student testimonial portrait"
                   width="400"
                   height="500"
                 />
@@ -194,7 +238,7 @@
                 <img
                   class="testimonial-photo"
                   src="resources/student_3.png"
-                  alt="Dev Patel"
+                  alt="Dev Patel — student testimonial portrait"
                   width="400"
                   height="500"
                 />
@@ -205,10 +249,10 @@
               </figure>
             </div>
           </div>
-        </div>
+        </section>
 
         <!-- Call to action: gradient/glow behind copy; #cta is the “Try for free” target from the hero -->
-        <div class="cta-block" id="cta" aria-labelledby="cta-heading">
+        <section class="cta-block" id="cta" aria-labelledby="cta-heading">
           <div class="cta-glow" aria-hidden="true"></div>
           <div class="cta-inner container" data-reveal>
             <h2 id="cta-heading" class="cta-title">Start Free. Upgrade When You’re Ready.</h2>
@@ -217,7 +261,7 @@
             </p>
             <a href="price.html" class="btn btn--primary btn--large">Get A Free Plan</a>
           </div>
-        </div>
+        </section>
       </section>
     </main>
 
