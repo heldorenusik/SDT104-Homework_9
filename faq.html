@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!--
+  FAQ page — intro on the left, accordion on the right (stacks on small screens).
+  Uses native <details>/<summary> so open/close works without JavaScript.
+  Shared header + button styles: styles.css; purple page background + card: faq.css.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ — MindFlow AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- after styles.css so FAQ page can override body background -->
+    <link rel="stylesheet" href="faq.css" />
+  </head>
+  <!-- page-faq = swap body background and hook FAQ-only rules -->
+  <body class="page-faq">
+    <header class="site-header" id="top">
+      <div class="header-inner">
+        <a href="index.html#top" class="logo-link">
+          <!-- decorative wave icon; “MindFlow AI” text carries the name for screen readers -->
+          <span class="logo-mark" aria-hidden="true">
+            <img
+              class="logo-img"
+              src="resources/logo.svg"
+              alt=""
+              width="44"
+              height="36"
+              decoding="async"
+            />
+          </span>
+          <span class="logo-text">MindFlow AI</span>
+        </a>
+        <nav class="nav-primary" aria-label="Main">
+          <ul class="nav-list">
+            <li><a href="index.html#services">Features</a></li>
+            <li><a href="price.html">Pricing</a></li>
+            <!-- this page -->
+            <li><a href="faq.html" aria-current="page">FAQ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="faq-main">
+      <!-- container class comes from styles.css (padding + max-width); faq-shell tweaks max-width -->
+      <div class="faq-shell container">
+        <!-- one big white card; CSS grid splits intro vs accordion from 900px up -->
+        <div class="faq-card">
+          <div class="faq-intro">
+            <!-- two spans = two lines + different colors (serif from --font-serif in :root) -->
+            <h1 class="faq-page-title">
+              <span class="faq-title-line1">Frequently Asked</span>
+              <span class="faq-title-line2">Questions</span>
+            </h1>
+            <p class="faq-lead">
+              MindFlow AI offers a free plan to help you get organized instantly. When you’re ready for advanced
+              analytics, unlimited AI summaries, and deeper personalization, upgrade to Pro.
+            </p>
+            <!-- sends people to the signup strip on the home page -->
+            <a href="index.html#cta" class="btn btn--primary">Get A Free Plan</a>
+          </div>
+
+          <!-- region label helps screen readers jump to the Q&A block -->
+          <div class="faq-list" role="region" aria-label="Frequently asked questions">
+            <!-- [open] on <details> is what drives the round → rounded rectangle + rotated chevron -->
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span class="faq-q">What Is Mindflow AI?</span>
+                <!-- chevron is visual only; summary itself is the accessible control -->
+                <span class="faq-toggle" aria-hidden="true"><span class="faq-chevron"></span></span>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  MindFlow AI is a study assistant that connects to your courses and materials to summarize content,
+                  build flashcards, quizzes, and a clear weekly plan so you spend less time organizing and more time
+                  learning.
+                </p>
+              </div>
+            </details>
+
+            <!-- rest of the FAQ rows = same idea: summary + hidden answer until you click -->
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span class="faq-q">How Does It Work?</span>
+                <span class="faq-toggle" aria-hidden="true"><span class="faq-chevron"></span></span>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  You add your syllabi, notes, or uploads. The assistant structures deadlines, highlights what to study
+                  next, and answers questions based on your own materials—not generic web answers.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span class="faq-q">Is Mindflow AI Safe?</span>
+                <span class="faq-toggle" aria-hidden="true"><span class="faq-chevron"></span></span>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  Your data is encrypted in transit and stored with industry-standard practices. We don’t sell your
+                  content to advertisers, and you can delete your account and data at any time from settings.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span class="faq-q">What Is AI?</span>
+                <span class="faq-toggle" aria-hidden="true"><span class="faq-chevron"></span></span>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  Here, “AI” means models that read and summarize your study materials and generate practice questions
+                  and plans. You stay in control: you can edit, dismiss, or regenerate anything the assistant suggests.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span class="faq-q">How Much Money?</span>
+                <span class="faq-toggle" aria-hidden="true"><span class="faq-chevron"></span></span>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  The free plan covers core organization and a limited number of AI actions each month. Pro unlocks
+                  unlimited summaries, advanced analytics, and deeper personalization—see the Pricing section on the home
+                  page for current rates.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span class="faq-q">Can I cancel Pro anytime?</span>
+                <span class="faq-toggle" aria-hidden="true"><span class="faq-chevron"></span></span>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  Yes. You can downgrade to the free plan whenever you like; you’ll keep access to Pro features until the
+                  end of your billing period.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

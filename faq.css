@@ -1,0 +1,201 @@
+/*
+  Styles for faq.html.
+
+  Topics touched here:
+  - “You are here” nav styling (matches price.css / aria-current pattern)
+  - Page-specific body background (#b4c1ff) — kills the mesh gradient from styles.css
+  - CSS grid on .faq-card: one column on phones, two columns from 900px (intro | accordion)
+  - <details>/<summary>: pill shape when closed, slightly squarer when [open]
+  - WebKit hides the default disclosure triangle; we draw our own circle + chevron
+  - Chevron centered with position absolute + translate(-50%, -50%) on the inner span
+  - .faq-toggle rotates 180° when open so the arrow points up
+
+  Load styles.css first for header, fonts, and .btn.
+*/
+
+/* current page link = full opacity + underline visible (same trick as price.css) */
+.page-faq .nav-primary .nav-list > li > a[aria-current="page"] {
+  color: var(--color-text);
+}
+
+.page-faq .nav-primary .nav-list > li > a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+/* solid periwinkle instead of the landing page’s layered radial gradients */
+body.page-faq {
+  background-color: #b4c1ff;
+  background-image: none;
+}
+
+.faq-main {
+  padding-block: 2rem 3.5rem;
+  padding-inline: 1.25rem;
+}
+
+/* slightly narrower than .container’s 1120px so the card doesn’t feel stretched */
+.faq-shell {
+  max-width: 1080px;
+}
+
+/*
+  FAQ “sheet”: one-column grid on small screens (intro stacks above the accordion).
+  Padding uses clamp() so it grows smoothly with viewport width — no media query for that.
+  From 900px, @media below adds a second column (intro | list).
+*/
+.faq-card {
+  background: var(--color-white);
+  border-radius: 28px;
+  padding: clamp(1.75rem, 4vw, 3rem);
+  box-shadow: 0 24px 60px rgba(80, 90, 180, 0.18);
+  display: grid;
+  gap: 2.5rem;
+}
+
+/* keeps the heading + paragraph from spanning the full wide card on desktop */
+.faq-intro {
+  max-width: 36ch;
+}
+
+.faq-page-title {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+/* Title sizes track the screen with vw inside clamp — readable on phones, capped on large screens */
+.faq-title-line1 {
+  display: block;
+  font-size: clamp(1.75rem, 4vw, 2.35rem);
+  color: #3d3d4a;
+  font-weight: 600;
+}
+
+.faq-title-line2 {
+  display: block;
+  font-size: clamp(2.15rem, 5vw, 2.85rem);
+  color: #8b96e8;
+  font-weight: 600;
+  margin-top: 0.15em;
+}
+
+.faq-lead {
+  margin: 0 0 1.75rem;
+  font-size: 0.9375rem;
+  color: var(--color-muted);
+  line-height: 1.65;
+}
+
+/* vertical stack of disclosure widgets */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+/* closed state = pill; open state = larger radius so the answer doesn’t look squeezed */
+.faq-item {
+  border-radius: 999px;
+  border: 1px solid rgba(45, 45, 58, 0.12);
+  background: var(--color-white);
+  overflow: hidden;
+}
+
+.faq-item[open] {
+  border-radius: 1.25rem;
+}
+
+/* flex row: question text grows, chevron button stays fixed width */
+.faq-summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.95rem 1rem 0.95rem 1.35rem;
+  cursor: pointer;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #3d3d4a;
+}
+
+/* Chrome/Safari default marker off — we replace it with .faq-toggle */
+.faq-summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-q {
+  text-align: left;
+  flex: 1;
+  min-width: 0;
+}
+
+/*
+  Accordion “animation”: only the chevron button moves.
+  transition on .faq-toggle + rotate when <details> is [open] → smooth 180° flip (arrow down → up).
+*/
+.faq-toggle {
+  position: relative;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #c8d0ff;
+  transition: transform 0.25s ease;
+}
+
+.faq-item[open] .faq-toggle {
+  transform: rotate(180deg);
+}
+
+/* tiny L-shaped borders, rotated → looks like a down chevron; dead-centered in the circle */
+.faq-chevron {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  box-sizing: border-box;
+  border-right: 2px solid var(--color-white);
+  border-bottom: 2px solid var(--color-white);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.faq-answer {
+  padding: 0 1.35rem 1.15rem;
+  margin-top: -0.25rem;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.faq-answer p {
+  margin: 0;
+}
+
+/*
+  Responsive layout — from 900px up:
+  - Main vertical padding breathes a bit more on desktop.
+  - .faq-card switches from a single column (stacked intro + accordion) to two columns:
+    intro on the left, questions on the right (grid-template-columns).
+*/
+@media (min-width: 900px) {
+  .faq-main {
+    padding-block: 2.5rem 4rem;
+  }
+
+  .faq-card {
+    grid-template-columns: minmax(240px, 1fr) minmax(0, 1.15fr);
+    align-items: start;
+    gap: 3rem;
+  }
+}
+
+/* Wider viewports: a touch more horizontal padding so the card isn’t glued to the screen edge */
+@media (min-width: 1100px) {
+  .faq-main {
+    padding-inline: 2rem;
+  }
+}

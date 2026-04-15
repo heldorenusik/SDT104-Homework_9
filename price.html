@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--
+  MindFlow pricing page — three cards in a row on wide screens, stacked on phones.
+  Header + buttons reuse styles.css (same look as the landing page).
+  Card chrome, tinted headers, and the feature checkmarks are in price.css.
+  “Buy The Plan” uses <button> so it does not navigate; “Try For Free” still links to the home CTA.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing — MindFlow AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- price.css loads after styles.css so it can override the little things (e.g. hide the corner dot) -->
+    <link rel="stylesheet" href="price.css" />
+  </head>
+  <!-- class on body = hook for .page-pricing rules in price.css (nav “you are here”) -->
+  <body class="page-pricing">
+    <!-- same header pattern as index / faq: sticky bar, logo goes home -->
+    <header class="site-header" id="top">
+      <div class="header-inner">
+        <a href="index.html#top" class="logo-link">
+          <!-- empty alt: logo text is next to the image; icon is decorative -->
+          <span class="logo-mark" aria-hidden="true">
+            <img
+              class="logo-img"
+              src="resources/logo.svg"
+              alt=""
+              width="44"
+              height="36"
+              decoding="async"
+            />
+          </span>
+          <span class="logo-text">MindFlow AI</span>
+        </a>
+        <nav class="nav-primary" aria-label="Main">
+          <ul class="nav-list">
+            <li><a href="index.html#services">Features</a></li>
+            <!-- aria-current tells assistive tech which page you’re on -->
+            <li><a href="price.html" aria-current="page">Pricing</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="pricing-main">
+      <!-- shell = max-width wrapper; grid holds the three <article> cards -->
+      <div class="pricing-shell">
+        <div class="pricing-grid">
+          <!-- each card: colored “head” band + white body; flex column so the button sits at the bottom -->
+          <article class="pricing-card">
+            <div class="pricing-card-head pricing-card-head--starter">
+              <span class="pricing-badge">Starter</span>
+              <!-- split price vs “/ month” so CSS can shrink the suffix -->
+              <p class="pricing-price">
+                <span class="pricing-amount">$0</span><span class="pricing-period">/ month</span>
+              </p>
+            </div>
+            <div class="pricing-card-body">
+              <p class="pricing-tagline">👌 Perfect to explore</p>
+              <ul class="pricing-features">
+                <li>All necessary tools</li>
+                <li>Academic calendar</li>
+                <li>Quizzes</li>
+              </ul>
+              <!-- still lands on the home CTA strip (signup / pitch) -->
+              <a href="index.html#cta" class="btn btn--primary pricing-cta">Try For Free</a>
+            </div>
+          </article>
+
+          <!-- middle tier: lavender header (modifier class --pro on the head div) -->
+          <article class="pricing-card">
+            <div class="pricing-card-head pricing-card-head--pro">
+              <span class="pricing-badge">Professional</span>
+              <p class="pricing-price">
+                <span class="pricing-amount">$12</span><span class="pricing-period">/ month</span>
+              </p>
+            </div>
+            <div class="pricing-card-body">
+              <p class="pricing-tagline">😎 For productive studying</p>
+              <ul class="pricing-features">
+                <li>All necessary tools</li>
+                <li>Academic calendar</li>
+                <li>Grading system</li>
+                <li>AI assistant</li>
+                <li>Modular system</li>
+              </ul>
+              <button type="button" class="btn btn--primary pricing-cta">Buy The Plan</button>
+            </div>
+          </article>
+
+          <!-- VIP: blue/cyan gradient on the head; longest feature list -->
+          <article class="pricing-card">
+            <div class="pricing-card-head pricing-card-head--vip">
+              <span class="pricing-badge">VIP</span>
+              <p class="pricing-price">
+                <span class="pricing-amount">$20</span><span class="pricing-period">/ month</span>
+              </p>
+            </div>
+            <div class="pricing-card-body">
+              <p class="pricing-tagline">👑 For study divas</p>
+              <ul class="pricing-features">
+                <li>All necessary tools</li>
+                <li>Academic calendar</li>
+                <li>Quizzes</li>
+                <li>Grading system</li>
+                <li>AI Assistant</li>
+                <li>Modular system</li>
+                <li>AI learning sessions</li>
+              </ul>
+              <button type="button" class="btn btn--primary pricing-cta">Buy The Plan</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

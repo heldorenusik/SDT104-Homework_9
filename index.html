@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<!-- MindFlow AI — marketing landing page for the homework project -->
+<html lang="en">
+  <head>
+    <!-- Head: metadata, title, fonts, and styles.css for this page -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindFlow AI — AI-Powered Study Assistant</title>
+    <!-- Fonts: preconnect tells the browser to connect early so text doesn’t sit invisible -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Site header: logo (links to #top), primary nav to Features / Pricing / FAQ -->
+    <header class="site-header" id="top">
+      <div class="header-inner">
+        <a href="#top" class="logo-link">
+          <span class="logo-mark" aria-hidden="true">
+            <img
+              class="logo-img"
+              src="resources/logo.svg"
+              alt=""
+              width="44"
+              height="36"
+              decoding="async"
+            />
+          </span>
+          <span class="logo-text">MindFlow AI</span>
+        </a>
+        <nav class="nav-primary" aria-label="Main">
+          <ul class="nav-list">
+            <li><a href="#services">Features</a></li>
+            <li><a href="price.html">Pricing</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main content: hero, about, then the long services block (features through CTA) -->
+    <main>
+      <!-- Hero: main headline, short pitch, two buttons, and the product screenshot -->
+      <section class="section section--hero" id="hero" aria-labelledby="hero-heading">
+        <div class="container hero-layout">
+          <div class="hero-copy">
+            <h1 id="hero-heading" class="hero-title">Clarity To Your Academic Chaos</h1>
+            <p class="hero-lead">An AI-powered assistant that organizes your semester in seconds.</p>
+            <div class="hero-actions">
+              <a href="#cta" class="btn btn--primary">Try for free</a>
+              <a href="#demo" class="btn btn--ghost">Watch Demo</a>
+            </div>
+          </div>
+          <figure class="hero-mockup">
+            <img
+              src="resources/hero_study_assistant.png"
+              alt="MindFlow AI app dashboard with quick summary and study assistant tools"
+              width="1200"
+              height="800"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <!-- About / pain points: three cards (deadlines, info overload, time), then a closing line -->
+      <section class="section section--about" id="about" aria-labelledby="about-heading">
+        <div class="container">
+          <h2 id="about-heading" class="section-title" data-reveal>Student Life is Overwhelming</h2>
+          <div class="about-grid" data-reveal-stagger>
+            <article class="about-card">
+              <div class="about-avatar">
+                <img src="resources/student_life_deadlines.png" alt="" width="200" height="200" />
+              </div>
+              <h3 class="about-card-title">Too many deadlines</h3>
+              <p class="about-card-text">Assignments pile up faster than you can plan for them.</p>
+            </article>
+            <article class="about-card">
+              <div class="about-avatar">
+                <img src="resources/student_life_much_info.png" alt="" width="200" height="200" />
+              </div>
+              <h3 class="about-card-title">Too much information</h3>
+              <p class="about-card-text">Lectures, slides, and readings never fit in one notebook.</p>
+            </article>
+            <article class="about-card">
+              <div class="about-avatar">
+                <img src="resources/student_life_no_time.png" alt="" width="200" height="200" />
+              </div>
+              <h3 class="about-card-title">Not enough time</h3>
+              <p class="about-card-text">You need structure without spending hours organizing.</p>
+            </article>
+          </div>
+          <p class="about-outro" data-reveal>
+            MindFlow AI turns scattered notes and dates into a calm, actionable plan—so you can focus on learning, not logistics.
+          </p>
+        </div>
+      </section>
+
+      <!--
+        Services area (one <section> for flow): product features, demo video,
+        student quotes on a tinted band, then the final call-to-action strip.
+      -->
+      <section class="section section--services" id="services" aria-labelledby="services-heading">
+        <div class="container">
+          <h2 id="services-heading" class="section-title" data-reveal>What MindFlow AI Can Do</h2>
+          <!-- Feature grid: Q&A, flashcards, quizzes, lessons — each card is an <article> -->
+          <div class="features-grid" data-reveal-stagger>
+            <article class="feature-card">
+              <div class="feature-visual">
+                <img src="resources/feature_questions.png" alt="" width="200" height="200" />
+              </div>
+              <h3 class="feature-title">Ask Questions</h3>
+              <p class="feature-text">Get clear answers grounded in your course materials.</p>
+            </article>
+            <article class="feature-card">
+              <div class="feature-visual">
+                <img src="resources/feature_flashcards.png" alt="" width="200" height="200" />
+              </div>
+              <h3 class="feature-title">Generate Flashcards</h3>
+              <p class="feature-text">Turn any topic into review-ready cards automatically.</p>
+            </article>
+            <article class="feature-card">
+              <div class="feature-visual">
+                <img src="resources/feature_quiz.png" alt="" width="200" height="200" />
+              </div>
+              <h3 class="feature-title">Take a Quiz</h3>
+              <p class="feature-text">Check understanding with adaptive practice questions.</p>
+            </article>
+            <article class="feature-card">
+              <div class="feature-visual">
+                <img src="resources/feature_lessons.png" alt="" width="200" height="200" />
+              </div>
+              <h3 class="feature-title">Interactive AI Lessons</h3>
+              <p class="feature-text">Walk through concepts step by step at your pace.</p>
+            </article>
+          </div>
+
+          <!-- Product demo: embedded video; #demo is where “Watch Demo” in the hero scrolls to -->
+          <div class="demo-block" id="demo" data-reveal>
+            <h2 class="demo-title">See how AI builds your week in 10 seconds.</h2>
+            <div class="demo-video-wrap">
+              <video
+                class="demo-video"
+                controls
+                playsinline
+                preload="metadata"
+                poster="resources/hero_study_assistant.png"
+              >
+                <source src="resources/video_guide.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonials: full-bleed background, three student photos + quotes in a row -->
+        <div class="testimonials-block" aria-labelledby="testimonials-heading">
+          <div class="container">
+            <h2 id="testimonials-heading" class="section-title section-title--on-tint">
+              Students Who Study Smarter
+            </h2>
+            <div class="testimonials-row">
+              <figure class="testimonial-card">
+                <img
+                  class="testimonial-photo"
+                  src="resources/student_1.png"
+                  alt="Jane Smith"
+                  width="400"
+                  height="500"
+                />
+                <figcaption>
+                  <strong>Jane Smith</strong>
+                  <p>“MindFlow cut my weekly planning from an hour to five minutes.”</p>
+                </figcaption>
+              </figure>
+              <figure class="testimonial-card">
+                <img
+                  class="testimonial-photo"
+                  src="resources/student_2.png"
+                  alt="Camila Laine"
+                  width="400"
+                  height="500"
+                />
+                <figcaption>
+                  <strong>Camila Laine</strong>
+                  <p>“Flashcards from my notes actually match what’s on the exam.”</p>
+                </figcaption>
+              </figure>
+              <figure class="testimonial-card">
+                <img
+                  class="testimonial-photo"
+                  src="resources/student_3.png"
+                  alt="Dev Patel"
+                  width="400"
+                  height="500"
+                />
+                <figcaption>
+                  <strong>Dev Patel</strong>
+                  <p>“The quiz mode showed me gaps I didn’t know I had.”</p>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call to action: gradient/glow behind copy; #cta is the “Try for free” target from the hero -->
+        <div class="cta-block" id="cta" aria-labelledby="cta-heading">
+          <div class="cta-glow" aria-hidden="true"></div>
+          <div class="cta-inner container" data-reveal>
+            <h2 id="cta-heading" class="cta-title">Start Free. Upgrade When You’re Ready.</h2>
+            <p class="cta-text">
+              Organize your semester, review smarter, and keep every deadline in one calm dashboard.
+            </p>
+            <a href="price.html" class="btn btn--primary btn--large">Get A Free Plan</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer: four columns of placeholder links (Product, Company, Resources, Legal) -->
+    <footer class="site-footer" id="footer">
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <h3 class="footer-heading">Product</h3>
+          <ul class="footer-links">
+            <li><a href="#services">Features</a></li>
+            <li><a href="price.html">Pricing</a></li>
+            <li><a href="#services">AI Tool</a></li>
+            <li><a href="#services">Flashcards</a></li>
+            <li><a href="#services">Quizzes</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-heading">Company</h3>
+          <ul class="footer-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#footer">Blog</a></li>
+            <li><a href="#footer">Careers</a></li>
+            <li><a href="#footer">Press</a></li>
+            <li><a href="#footer">Partners</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-heading">Resources</h3>
+          <ul class="footer-links">
+            <li><a href="#footer">Help Center</a></li>
+            <li><a href="#footer">FAQs</a></li>
+            <li><a href="#footer">Tutorials</a></li>
+            <li><a href="#footer">Student Guide</a></li>
+            <li><a href="#footer">API Documentation</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-heading">Legal</h3>
+          <ul class="footer-links">
+            <li><a href="#footer">Privacy Policy</a></li>
+            <li><a href="#footer">Terms of Service</a></li>
+            <li><a href="#footer">Cookie Policy</a></li>
+            <li><a href="#footer">Accessibility</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- Footer bar: contact line + social links (open in a new tab) -->
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <p class="footer-contact">
+            <a href="mailto:hello@mindflow.ai">hello@mindflow.ai</a>
+            <span class="sep" aria-hidden="true">·</span>
+            <a href="tel:+18005551234">+1 (800) 555-1234</a>
+          </p>
+          <ul class="social-list" aria-label="Social media">
+            <li>
+              <a href="https://twitter.com" class="social-link" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+            </li>
+            <li>
+              <a href="https://instagram.com" class="social-link" target="_blank" rel="noopener noreferrer">Instagram</a>
+            </li>
+            <li>
+              <a href="https://linkedin.com" class="social-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
