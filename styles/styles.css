@@ -233,7 +233,231 @@ a:hover {
   transform: scaleX(1);
 }
 
+/* ——— Mobile navigation: burger + full-screen overlay (desktop unchanged from 640px) ——— */
+.nav-menu-toggle {
+  display: none;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--color-text);
+  cursor: pointer;
+  transition:
+    background var(--duration-fast) ease,
+    transform var(--duration-fast) ease;
+}
+
+.nav-menu-toggle:hover,
+.nav-menu-toggle:focus-visible {
+  background: rgba(99, 102, 241, 0.22);
+  outline: none;
+}
+
+.nav-menu-toggle:focus-visible {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgba(99, 102, 241, 0.55);
+}
+
+.nav-menu-toggle__icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 1.25rem;
+}
+
+.nav-menu-toggle__icon span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  border-radius: 1px;
+  background: currentColor;
+  transform-origin: center;
+  transition:
+    transform 0.25s ease,
+    opacity 0.2s ease;
+}
+
+.nav-menu-toggle[aria-expanded="true"] .nav-menu-toggle__icon span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-menu-toggle[aria-expanded="true"] .nav-menu-toggle__icon span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.nav-menu-toggle[aria-expanded="true"] .nav-menu-toggle__icon span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+}
+
+.nav-overlay[hidden] {
+  display: none;
+}
+
+.nav-overlay:not([hidden]) {
+  display: block;
+}
+
+.nav-overlay__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.nav-overlay__panel {
+  position: absolute;
+  left: 50%;
+  top: 5.5rem;
+  transform: translateX(-50%);
+  width: calc(100% - 2.5rem);
+  max-width: 20rem;
+  /* Extra top padding so the close control sits fully above the nav links */
+  padding: 3.35rem 1.25rem 1.5rem;
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 24px 60px rgba(80, 90, 180, 0.2),
+    0 8px 24px rgba(15, 23, 42, 0.12);
+  animation: nav-overlay-panel-in 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes nav-overlay-panel-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-0.5rem) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+.nav-overlay__close {
+  position: absolute;
+  top: 0.35rem;
+  right: 0.6rem;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-muted);
+  line-height: 0;
+  cursor: pointer;
+  transition:
+    background var(--duration-fast) ease,
+    color var(--duration-fast) ease;
+}
+
+/* × sits low in many sans fonts; grid + slight shift centers it optically in the circle */
+.nav-overlay__close > span {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 1.35rem;
+  line-height: 0;
+  transform: translateY(-0.06em);
+}
+
+.nav-overlay__close:hover,
+.nav-overlay__close:focus-visible {
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--color-text);
+  outline: none;
+}
+
+.nav-overlay__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-overlay__list a {
+  display: block;
+  padding: 0.9rem 1rem;
+  border-radius: 0.85rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  color: #2a2a35;
+  background: rgba(99, 102, 241, 0.1);
+  transition:
+    background var(--duration-fast) ease,
+    color var(--duration-fast) ease;
+}
+
+.nav-overlay__list a:hover,
+.nav-overlay__list a:focus-visible {
+  background: rgba(99, 102, 241, 0.2);
+  color: #14141c;
+  text-decoration: none;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.35);
+}
+
+.nav-overlay__list a[aria-current="page"] {
+  background: rgba(99, 102, 241, 0.28);
+  color: #14141c;
+}
+
+body.nav-menu-open {
+  overflow: hidden;
+}
+
+@media (max-width: 639px) {
+  .header-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .nav-primary {
+    display: none;
+  }
+
+  .nav-menu-toggle {
+    display: inline-flex;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .nav-menu-toggle__icon span {
+    transition-duration: 0.01ms;
+  }
+
+  .nav-overlay__panel {
+    animation: none;
+  }
+
   .nav-primary .nav-list > li > a::after {
     transition-duration: 0.01ms;
   }
@@ -877,6 +1101,10 @@ a:hover {
     align-items: center;
     justify-content: space-between;
     min-height: 3.25rem;
+  }
+
+  .nav-menu-toggle {
+    display: none;
   }
 
   .about-grid {

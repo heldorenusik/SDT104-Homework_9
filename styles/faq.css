@@ -199,3 +199,53 @@ body.page-faq {
     padding-inline: 2rem;
   }
 }
+
+/*
+  Mobile / small screens: full white canvas — removes the periwinkle page tint, card shadow
+  (which can read as a dark “block”), and keeps accordion + answers explicitly on white so
+  system dark-mode styling doesn’t paint disclosure content with a dark panel.
+*/
+@media (max-width: 899px) {
+  body.page-faq {
+    background-color: #fff;
+    background-image: none;
+  }
+
+  .faq-main {
+    background-color: #fff;
+  }
+
+  .faq-shell.container {
+    max-width: none;
+    width: 100%;
+    padding-inline: 0;
+    margin-inline: 0;
+  }
+
+  .faq-card {
+    background-color: #fff;
+    border-radius: 0;
+    box-shadow: none;
+    padding-inline: clamp(1.25rem, 5vw, 1.75rem);
+  }
+
+  .faq-list {
+    background-color: #fff;
+    color-scheme: light;
+  }
+
+  .faq-item,
+  .faq-item[open] {
+    background-color: #fff;
+    color-scheme: light;
+  }
+
+  .faq-summary {
+    background-color: #fff;
+  }
+
+  .faq-answer {
+    background-color: #fff;
+    color: var(--color-muted);
+  }
+}

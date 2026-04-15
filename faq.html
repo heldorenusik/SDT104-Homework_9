@@ -45,6 +45,20 @@
           </span>
           <span class="logo-text">MindFlow AI</span>
         </a>
+        <button
+          type="button"
+          class="nav-menu-toggle"
+          aria-expanded="false"
+          aria-controls="site-nav-overlay"
+          aria-label="Open menu"
+        >
+          <span class="visually-hidden">Menu</span>
+          <span class="nav-menu-toggle__icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
         <nav class="nav-primary" aria-label="Main">
           <ul class="nav-list">
             <li><a href="index.html#services">Features</a></li>
@@ -55,6 +69,22 @@
         </nav>
       </div>
     </header>
+
+    <div class="nav-overlay" id="site-nav-overlay" hidden aria-hidden="true">
+      <div class="nav-overlay__backdrop" data-nav-overlay-dismiss aria-hidden="true"></div>
+      <div class="nav-overlay__panel" role="dialog" aria-modal="true" aria-label="Site navigation">
+        <button type="button" class="nav-overlay__close" aria-label="Close menu">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <nav class="nav-overlay__nav" aria-label="Main">
+          <ul class="nav-overlay__list">
+            <li><a href="index.html#services">Features</a></li>
+            <li><a href="price.html">Pricing</a></li>
+            <li><a href="faq.html" aria-current="page">FAQ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
 
     <main class="faq-main">
       <!-- container class comes from styles.css (padding + max-width); faq-shell tweaks max-width -->
@@ -164,5 +194,6 @@
         </div>
       </div>
     </main>
+    <script src="scripts/nav-menu.js" defer></script>
   </body>
 </html>
